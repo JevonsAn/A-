@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>搜索算法可视化</title>
+</head>
+<link rel="shortcut icon" href="static/ico/favicon.ico" />
+<link rel="bookmark"href="static/ico/favicon.ico" />
+<link rel="stylesheet" href="static/cj/iview.css">
+<style id="cssstyle1">
+.links line {
+	stroke: #333;
+	stroke-opacity: 0.6;
+}
+</style>
+<style id="cssstyle2">
+/*.node circle {
+	stroke: #333;
+	stroke-width: 1px;
+	stroke-opacity: 0.6;
+}*/
+.node2{
+	stroke: #333;
+	stroke-width: 1px;
+	stroke-opacity: 0.6;
+}
+</style>
+
+<body style="background-color:#eee">
+	<div style="text-align: center; margin-top: 60px;">
+		<h1>搜索算法可视化</h1>
+	</div>
+	<div style="text-align: center;margin-top: 30px;">
+		<div id="inputdiv">
+			<row>
+				请选择地图文件：
+				<select v-model="selected" @change="filechange">
+				  <option v-for="option in graphList" v-bind:value="option" >
+				    {{ option}}
+				  </option>
+				</select>	
+			</row>
+			<row style="text-align: center;margin-top: 20px;">
+				<!-- <i-col span="3" push="6">
+					<p>请选择地图文件：</p>
+				</i-col> -->
+				<i-button type="primary" @click="getResult">执行算法</i-button>
+				<i-button type="warning" @click="clear">清空</i-button>
+				<!-- <i-button to="/addgraph">新建地图</i-button> -->
+			</row>
+		</div>
+		<br/>
+		<svg id="topo" width="700" height="700">
+		            
+		</svg>
+		
+	</div>
+	
+</body>
+</html>
+<script type="text/javascript" src="static/cj/jquery-3.3.1.min.js"></script>
+<script src="static/cj/d3.js"></script>
+<script src="static/cj/d3-selection-multi.v1.js"></script>
+<script src="static/cj/vue.js"></script>
+<!-- <script src="static/cj/vue-strap.js"></script> -->
+<script src="static/cj/iview.js"></script>
+<script src="static/cj/axios.min.js"></script>
+<script src="static/graph.js"></script>
